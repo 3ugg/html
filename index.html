@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="A Mnemonic URL Shortener service for non-clickable media.">
+    <meta name="description" content="A Mnemonic URL Shortener service.">
     <meta name="keywords" content="URL Shortener, Short URL, Trimmed URL, Short Links, Link Management Platform, Reusable Links">
     <meta name="robots" content="index,follow">
     <meta name="channel" content="Mnemonic URL Shortener">
@@ -75,86 +75,197 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
 <style>
-.banner-form {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 60px;
-    background: #ffffff;
-    border: none;
-    font-size: 16px;
-    margin-bottom: 25px;
-    width: 100%;
-}
+        .banner-form {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            background: #ffffff;
+            border: none;
+            font-size: 16px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
 
-/* Input field */
-#editableUrl {
-    flex: 1;
-    height: 100%;
-    padding-right: 40px;; /* Padding to prevent text from touching the edges */
-    font-size: 16px;
-    margin-right: 3px; /* 3px gap between input field and button */
-    position: relative; /* Position relative for absolute positioning of status text */
-}
+        /* Input field */
+        #editableUrl {
+            flex: 1;
+            height: 100%;
+            padding-right: 40px;
+            font-size: 16px;
+            margin-right: 6px;
+            position: relative;
+        }
 
-/* Status text */
-.status-text {
-    position: absolute;
-    top: 50%; /* Vertically center */
-    right: calc(85px + 95px); /* Adjust 3px right of the button */
-    transform: translateY(-50%);
-    font-size: 16px;
-    display: none; /* Hidden by default */
-}
+        /* Button */
+        #editableUrlBtn {
+            height: 100%;
+            width: 160px;
+            font-family: Kanit, sans-serif;
+            font-size: calc(14px + 0.5vw);
+            background-color: #00abe4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-/* Button */
-#editableUrlBtn {
-    height: 100%;
-    width: 160px; 
-    font-family: Kanit, sans-serif;
-    font-size: calc(14px + 0.5vw); 
-    background-color: #00abe4; 
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; 
-}
 
-#editableUrlBtn:focus {
-    outline: none;
-}
+        #editableUrlBtn:focus {
+            outline: none;
+        }
 
-/* Button hover */
-#editableUrlBtn:hover {
-    background: #ffffff !important; /* Change background color on hover */
-    color: #a30132 !important; /* Change text color on hover */
-}
+        /* Button hover  */
+        #editableUrlBtn:hover {
+            background: #ffffff !important;
+            /* Change background color on hover */
+            color: #a30132 !important;
+            /* Change text color on hover */
 
-/* Media queries for smaller screens */
-@media (max-width: 768px) {
-    /* Adjust button size for smaller screens */
-    #editableUrlBtn {
-        width: 105px; 
-        font-size: calc(12px + 0.5vw); /* Smaller font size for small screens */
-    }
+        }
 
-    /* Adjust status text for smaller screens */
-    .status-text {
-        font-size: 12px; /* Adjust font size for smaller screens */
-        right: calc(25px + 95px); /* Ensure correct positioning */
-    }
-}
 
-/* Disabled button state */
-#editableUrlBtn:disabled {
-    background-color: lightgray !important;
-    color: darkgray !important;
-    cursor: not-allowed !important;
-}
+        /* Status text */
+        .status-text {
+            position: absolute;
+            top: 50%;
+            /* Vertically center */
+            right: calc(173px + 13px);
+            /* Adjust icon positioning relative to the button */
+            transform: translateY(-50%);
+            font-size: 14px;
+            display: none;
+            /* Hidden by default */
+        }
 
 
 
-</style>
+        /* Media queries for smaller screens */
+        @media (max-width: 768px) {
+
+            /* Adjust button size for smaller screens */
+            #editableUrlBtn {
+                width: 105px;
+                font-size: calc(12px + 0.5vw);
+                /* Smaller font size for small screens */
+            }
+
+            /* Adjust status text for smaller screens */
+            .status-text {
+                font-size: 14px;
+                /* Adjust font size for smaller screens */
+                right: calc(25px + 95px);
+                /* Ensure correct positioning */
+            }
+        }
+
+        /* Disabled button state */
+        #editableUrlBtn:disabled {
+            background-color: lightgray !important;
+            color: darkgray !important;
+            cursor: not-allowed !important;
+        }
+
+        /* Reset default padding and margin for the section */
+        .banner-section {
+
+            padding-top: 96px;
+        }
+
+        /* Full-width image container */
+        .full-width-image {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            /* Make the container span the full width of the viewport */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .full-width-image img {
+            width: 100%;
+            /* Stretch the image to fill the width */
+            height: 450px;
+            /* Height for larger screens */
+            object-fit: cover;
+            /* Cover the container without distortion */
+        }
+
+
+
+        /* Text wrapper positioning */
+        .text-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            transform: translateY(-50%);
+        }
+
+        .left-text,
+        .right-text {
+            width: 40%;
+            color: white;
+            text-align: center;
+        }
+
+        /* Default text size for small screens */
+        .left-text h4,
+        .right-text h4 {
+            font-size: 22px;
+        }
+
+        .left-text p,
+        .right-text p {
+            font-size: 17px;
+        }
+
+        /* Ensure banner height is 400px on small screens */
+        @media (max-width: 768px) {
+            .full-width-image img {
+                height: 300px;
+                /* Height for small screens */
+            }
+        }
+
+        /* Adjust for larger screens */
+
+        @media (min-width: 700px) {
+            .full-width-image img {
+                height: 400px;
+                /* Height for large screens */
+            }
+            .left-text h4,
+            .right-text h4 {
+                font-size: 32px;
+            }
+            .left-text p,
+            .right-text p {
+                font-size: 20px;
+            }
+
+            .banner-title {
+                font-size: 40px;
+            }
+
+            .subtitle {
+                font-size: 24px;
+            }
+        }
+        @media (max-width: 430px){
+            .bg-Gifbanner{
+                display: none;
+            }
+        }
+        @media (min-width: 431px){
+            .sm-Gifbanner{
+                display: none;
+            }
+        }
+    </style>
 
 </head>
 
@@ -193,6 +304,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li>
                         <a href="use-cases.html">Use Cases</a>
                     </li>
+
+                     <li>
+                        <a href="branded-messaging.html">Branded Messaging</a>
+                    </li>
+
+                      <li>
+                        <a href="mnemonic-urls.html">Mnemonic URLs</a>
+                    </li>
                    
                     <li>
                         <a href="blog.html" target="_blank">Blog</a>
@@ -219,247 +338,118 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <!--============= Banner Section Starts Here =============-->
-    <section class="banner-section bg-light" style="padding-bottom:60px;">
+     <!--============= Banner Section Starts Here =============-->
+    <section class="banner-section bg-light" id="hero-section">
+    <img src="./assets/images/banner/SmallBanner.gif" alt="Mnemonic URL Shortener" title="Mnemonic URL Shortener" class=" sm-Gifbanner img-fluid " style="width: 100vw !important;"  usemap="#image-map-small"/>
+    </section>
 
-        <!-- <div class="banner-bg bg_img" data-background="./assets/images/banner/banner-bg-home.jpg"> -->
-            <!-- <div class="banner-bg-shape"><img src="./assets/images/banner/banner-shape.png" alt="banner"></div>
-            <div class="round-1">
-                <img src="./assets/images/banner/01.png" alt="banner">
-            </div>
-            <div class="round-2">
-                <img src="./assets/images/banner/02.png" alt="banner">
-            </div> -->
-        <!-- </div> -->
-        <div class="container ">
-            <div class="banner-content ">
-               <h2 class="" style="font-size: 43px;">3u.gg is a premier URL shortener service</h2>
-                <!-- <h1 class="title">3u.gg is a premium-only URL shortener service</h1> -->
-                <p class="banner-text mt-1">3u.gg URLs (colloquially called ‘Thank you URLs’) are short URLs enabling campaign tracking for <a href="non-clickable-media-optimized.html" target="_blank" class="" style="color: #a30132;">non-clickable media advertising</a>.</p>
-                <p></p>
-                <h3 class="" style="padding-top:10px;">Non-clickable Media Examples</h3>
+    <section class="" id="hero-section">
+        <div style="width: 100vw !important; ">
+            <img src="./assets/images/banner/BannerGIF.gif" alt="Mnemonic URL Shortener" id="responsive-image" title="Mnemonic URL Shortener" class="bg-Gifbanner img-fluid heightSMscreen" style="width: 100vw !important;" usemap="#image-map" />
             
+        </div>
 
        
-            <div class="tiny-three-item">
-                <div class="tiny-slide">
-                 <div    class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/bus-ad.png" class="img-fluid  mx-auto " alt="Bus-Ad" title="Bus-Ad">
-   
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/youtube-ad.png" class="img-fluid  mx-auto " alt="YouTube Ad" title="YouTube Ad">
- 
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/radio-ad.png" class="img-fluid  mx-auto " alt="Radio-Ad" title="Radio-Ad">
- 
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/MEME.png" class="img-fluid  mx-auto " alt="MEME" title="MEME">
- 
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/tv-ad.png" class="img-fluid  mx-auto " alt="TV-Ad" title="TV-Ad">
- 
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/billboard.png" class="img-fluid  mx-auto " alt="Billboard" title="Billboard">
- 
-                        </div>
-                    </div>
-                </div>
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/podcast.png" class="img-fluid  mx-auto " alt="Podcast" title="Podcast">
-                        </div>
-                    </div>
-                </div>
+        <map name="image-map-small">
+            <area alt="Branded Message" title="Branded Message" href="branded-messaging.html" coords="390,1001,737,1106" shape="rect">
+            <area  alt="Mnemonic URLs" title="Mnemonic URLs" href="mnemonic-urls.html" coords="387,2187,740,2292" shape="rect">
+        </map>
+        
+        <map name="image-map">
+            <area  alt="Branded Message" title="Branded Message" href="branded-messaging.html" coords="153,398,341,449" shape="rect">
+            <area  alt="Mnemonic URLs" title="Mnemonic URLs" href="mnemonic-urls.html" coords="1201,234,1389,285" shape="rect">
+        </map>
 
-
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/printed-paper.png" class="img-fluid  mx-auto " alt="Printed Paper" title="Printed Paper">
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/flyer-brochure.png" class="img-fluid  mx-auto " alt="Flyer Brochure" title="Flyer Brochure">
-                        </div>
-                    </div>
-                </div>
-
-                  <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/webinar.png" class="img-fluid  mx-auto " alt="Webinar" title="Webinar">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/Presentation.png" class="img-fluid  mx-auto " alt="presentation" title="Presentation">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/news.png" class="img-fluid  mx-auto " alt="News" title="News">
-                        </div>
-                    </div>
-                </div>
-
-
-                  <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/reels.png" class="img-fluid  mx-auto " alt="Reels" title="Reels">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tiny-slide">
-                    <div class="card border-0 text-center">
-                        <div class="card-body">
-                            <img src="assets/images/banner/zoom.png" class="img-fluid  mx-auto " alt="Zoom" title="Zoom">
-                        </div>
-                    </div>
-                </div>
-
-
-            
-
-       </div>
-    </div>
-           <div class="banner-form-group">
-    <h3 class="subtitle">Grab URL of Your Choice</h3>
-  <form class="banner-form">
-    <input type="text" id="editableUrl" value="3u.gg/" name="url" required>
-    <button type="button" id="editableUrlBtn">Check Availability</button>
-    <span id="statusText" class="status-text"></span>
-  </form>
-
+        <div class="container" id="check-availability-input">
+       
+            <div class="banner-content">
+                <h2 class="banner-title" style="margin-top: 30px;">3u.gg is a mnemonic URL shortener service</h2>
+            </div>
+            <div class="banner-form-group">
+                <h3 class="subtitle" style="font-size: 34px;">Grab URL of Your Choice</h3>
+                <form class="banner-form">
+                    <input type="text" id="editableUrl" value="3u.gg/" name="url" required>
+                    <button type="button" id="editableUrlBtn">Check Availability</button>
+                    <span id="statusText" class="status-text"></span>
+                </form>
                 <div class="banner-text">
                     <div class="counter-item">
-                        <p style="margin-top: 40px;"><span>You can register the short URL of your choice, if it is available, without upfront paying. It will be held in your account for its ‘hold-time’ which you can test it. For four character short URLs the hold time is 24 hours and for five or more character short URLs, it is one week.</span></p>
+                        <p style="margin-top: 40px;"><span>You can register the short URL of your choice, if it is available, without upfront paying. It will be held in your account for its ‘hold-time’  which you can test it. For four character short URLs the hold time is 24 hours and for five or more character short URLs, it is one week.</span></p>
                         <br>
-                        <p style="text-align: left; margin-left: 5px;"><small >* Direct Link must contain at least 4 characters. Valid characters are alphabets, numbers, hyphen (‐), and tilde (˜).</small></p>
-                       
+                        <p style="text-align: left; margin-left: 5px;"><small>* Direct Link must contain at least 4 characters. Valid characters are alphabets, numbers, hyphen (‐), and tilde (˜).</small>
+                        </p>
                     </div>
-                    
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!--============= Banner Section Ends Here =============-->
-
-
-   
- <!--============= Features Starts Here =============-->
+    <!--============= Features Starts Here =============-->
 
     <section id="Feature" class="call-in-action padding-top mt-20 padding-bottom  ">
-    <div class="container ">
-        <div class="section-header mb-low">
+        <div class="container ">
+            <div class="section-header mb-low">
                 <h2 class="title mb-0">Features</h2>
             </div>
-    <!-- First Row -->
+            <!-- First Row -->
+            <div class="row mb-20 mt-20 mb-4">
+                <!-- Image Column -->
+                <div class="col-md-6 mb-4 mt-4">
+                    <img src="./assets/images/how/case-insensitive.png" alt="Case-Insensitive" class="img-fluid">
+                </div>
+                <!-- Text Column -->
+                <div class="col-md-6">
+                    <h3 class="title mt-4 mb-20">Case-Insensitive</h3>
 
-     <div class="row mb-20 mt-20 mb-4">
-        <!-- Image Column -->
-        <div class="col-md-6 mb-4 mt-4">
-            <img src="./assets/images/how/case-insensitive.png" alt="Case-Insensitive" class="img-fluid">
-        </div>
-        <!-- Text Column -->
-        <div class="col-md-6">
-            <h3 class="title mt-4 mb-20">Case-Insensitive</h3>
-                            
-                            <p>3u.gg short URLs are case-insensitive optimized for non-clickable media advertising.</p>
-                            <p>3u.gg/McDonalds is the same as 3u.gg/MCDONALDS or 3u.gg/mcdonalds. They all point to the same target URLs. </p>
-        </div>
-    </div>
+                    <p>3u.gg short URLs are case-insensitive optimized for non-clickable media advertising.</p>
+                    <p>3u.gg/McDonalds is the same as 3u.gg/MCDONALDS or 3u.gg/mcdonalds. They all point to the same
+                        target URLs. </p>
+                </div>
+            </div>
+            <!-- Second Row -->
+            <div class="row mb-20 mt-20 mb-4">
 
-   
-    <!-- Second Row -->
-     <div class="row mb-20 mt-20 mb-4">
-       
-        <div class="col-md-6">
-            <h3 class="title mt-4 mb-20 ">Embed Query Parameters for Campaign Tracking</h3>
-                            <p>3u.gg short URLs can embed campaign tracking parameters.</p>
-                            <p>Such parameters (usually called UTM parameters) may be added to the target URLs or kept stored on the 3u.gg forwarding servers.</p>
-        </div>
-       
-       <div class="col-md-6 mb-4 mt-4">
-            <img src="./assets/images/how/campaign-tracking-parameters.png" alt="Campaign Tracking Parameters" class="img-fluid">
-        </div>
-    </div> 
+                <div class="col-md-6">
+                    <h3 class="title mt-4 mb-20 ">Embed Query Parameters for Campaign Tracking</h3>
+                    <p>3u.gg short URLs can embed campaign tracking parameters.</p>
+                    <p>Such parameters (usually called UTM parameters) may be added to the target URLs or kept stored on
+                        the 3u.gg forwarding servers.</p>
+                </div>
+                <div class="col-md-6 mb-4 mt-4">
+                    <img src="./assets/images/how/campaign-tracking-parameters.png" alt="Campaign Tracking Parameters"
+                        class="img-fluid">
+                </div>
+            </div>
+            <!-- Third Row -->
+            <div class="row mb-20 mt-20 mb-4">
+                <!-- Image Column -->
+                <div class="col-md-6 mb-4 mt-4">
+                    <img src="./assets/images/how/editable-url.png" alt="Editable URLs" class="img-fluid">
+                </div>
+                <!-- Text Column -->
+                <div class="col-md-6">
+                    <h3 class="title mt-4 mb-20 ">Editable</h3>
+                    <p>3u.gg short URLs are premium URLs. Owners can reuse them time and again by changing their target
+                        URLs and/or by changing their embedded campaign tracking parameters. </p>
+                </div>
+            </div>
+            <!-- Fourth Row -->
+            <div class="row mb-20 mt-20 mb-4">
 
-    <!-- Third Row -->
-    <div class="row mb-20 mt-20 mb-4">
-        <!-- Image Column -->
-        <div class="col-md-6 mb-4 mt-4">
-            <img src="./assets/images/how/editable-url.png" alt="Editable URLs" class="img-fluid">
+                <div class="col-md-6">
+                    <h3 class="title mt-4 mb-20">Choice URLs (if available)</h3>
+                    <p>3u.gg lets you choose the ending (if available). </p>
+                    <p>You can grab your brand name (e.g. 3u.gg/McDonalds) or can choose other single dictionary words
+                        or their combinations.</p>
+                </div>
+                <div class="col-md-6 mb-4 mt-4">
+                    <img src="./assets/images/how/choice-urls.png" alt="Choice URLs" class="img-fluid">
+                </div>
+            </div>
         </div>
-        <!-- Text Column -->
-        <div class="col-md-6">
-            <h3 class="title mt-4 mb-20 ">Editable</h3>
-                            <p>3u.gg short URLs are premium URLs. Owners can reuse them time and again by changing their target URLs and/or by changing their embedded campaign tracking parameters.  </p>
-        </div>
-    </div>
-
-    <!-- Fourth Row -->
-     <div class="row mb-20 mt-20 mb-4">
-       
-        <div class="col-md-6">
-            <h3 class="title mt-4 mb-20">Choice URLs (if available)</h3>
-                            <p>3u.gg lets you choose the ending (if available). </p>
-                            <p>You can grab your brand name (e.g. 3u.gg/McDonalds) or can choose other single dictionary words or their combinations.</p>
-        </div>
-       
-        <div class="col-md-6 mb-4 mt-4">
-            <img src="./assets/images/how/choice-urls.png" alt="Choice URLs" class="img-fluid">
-        </div>
-    </div> 
-</div>
-</section>
+    </section>
 
     <!--============= Feature Section Ends Here =============-->
-    
-
     <!--============= How Section Starts Here =============-->
     <section class="how-section padding-top pt-md-half pb-max-lg-0 section-bg" style="padding-bottom:20px;">
         <div class="container">
@@ -499,120 +489,144 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </div>
-
-        <div class="section-header mb-low " style="margin-top: 30px;">
-             <img src="./assets/images/how/Continuously-Optimize.png" alt="Optimize Continuously">
-                <h6 class="title mb-0 text-uppercase"style="margin-top: 20px;" >that’s it! You are all set to optimize continuously</h6>
-            </div>
+        <div class="section-header mb-low col-sm-10" style="margin-top: 30px;">
+            <img src="./assets/images/how/Continuously-Optimize.png" class="img-fluid" alt="Responsive Image">
+            <h6 class="title mb-0 text-uppercase" style="margin-top: 20px;">that’s it! You are all set to optimize
+                continuously</h6>
+        </div>
     </section>
     <!--============= How Section Ends Here =============-->
-   <section class="how-section padding-top pt-md-half pb-max-lg-0 bg-light" style="padding-bottom:20px;">
-    <div class="container mt-20 ">
-    <!-- First Row -->
-    <div class="row mb-40 ">
-        <!-- Image Column -->
-        <div class="col-md-6 ">
-            <img src="./assets/images/how/organization-account.png" alt="Organization Account" class="img-fluid">
+    <section class="how-section padding-top pt-md-half pb-max-lg-0 bg-light" style="padding-bottom:20px;">
+        <div class="container mt-20 ">
+            <!-- First Row -->
+            <div class="row mb-40 ">
+                <!-- Image Column -->
+                <div class="col-md-6 ">
+                    <img src="./assets/images/how/organization-account.png" alt="Organization Account"
+                        class="img-fluid">
+                </div>
+                <!-- Text Column -->
+                <div class="col-md-6 mb-4">
+                    <h3 class="title mt-4  mb-4 ">Organization Account</h3>
+                    <p>3u.gg organization accounts are a prefix exclusive for the organization e.g. 3u.gg/hp/.</p>
+                    <p>Organization can then create short URLs within their exclusive space. All organization URLs have
+                        the same technical features and network as for the individual short URLs.</p>
+                    <p>Organization accounts also have access to 3u.gg GUI and API. The API enables URL shortening to be
+                        embedded in your other workflows.</p>
+                </div>
+            </div>
+            <!-- Second Row -->
         </div>
-        <!-- Text Column -->
-        <div class="col-md-6 mb-4">
-            <h3 class="title mt-4  mb-4 ">Organization Account</h3>
-                            <p>3u.gg organization accounts are a prefix exclusive for the organization e.g. 3u.gg/hp/.</p>
-                            <p>Organization can then create short URLs within their exclusive space. All organization URLs have the same technical features and network as for the individual short URLs.</p>
-                            <p>Organization accounts also have access to 3u.gg GUI and API. The API enables URL shortening to be embedded in your other workflows.</p>
-        </div>
-    </div>
-
-    <!-- Second Row -->
-
-   
-</div>
-</section>
-   
-
-
+    </section>
     <!--============= Call In Action Section Starts Here =============-->
-<section class="section padding-top pt-md-half pb-max-lg-0 mb-40" id="pricing">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 mt-2 pt-2">
-                <div class="title-box text-center">
-                    <h2 class="title mb-0">Pricing Packages</h2>
-                    <p class=" f-17 mt-3 mb-4">View our pricing for individual and organization accounts.</p>
+    <section class="section padding-top pt-md-half pb-max-lg-0 mb-40" id="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-box text-center">
+                        <h2 class="title mb-0">Pricing Packages</h2>
+                        <p class=" f-17 mt-3 mb-4">View our pricing for individual and organization accounts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4" >
+                    <div class="pricing-box mt-4">
+                        <h4 class="f-20 bg-price text-white p-2 mb-3  text-center">Direct Short URLs</h4>
+                        <p class="text-center my-2">Direct short URLs that are easy to remember and type. Get case-insensitive, four and five character URLs. </p>
+                        <p class="text-center mb-3 ">Start with <strong>3u.gg/<span class="text-color" style="background-color:#b3d7fc; color:#a30132; font-size: 30px;">_ _ _ _</strong></span></strong></p>
+                        <div class="mb-3" style="height: 233px;">
+                            <table class="table table-bordered" style="color: #1e375a !important; position: relative; bottom: 5px;">
+                                <thead class="bg-light ">
+                                    <tr>
+                                        <th scope="col">Package</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="font-size:14px;">
+                                    <tr>
+                                        <td>Annual</td>
+                                        <td>US$1.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5 Years</td>
+                                        <td>US$3.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="mt-30 text-center" style="position: relative; top: 8px;">
+                                <a href="https://admin.3u.gg/auth" target="_blank"
+                                    class="btn btn-price btn-rounded center" style="transform: scale(0.8);">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="pricing-box mt-4" >
+                        <h4 class="f-20 bg-price text-white p-2 mb-3  text-center">Organization Accounts</h4>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 text-center" style="border-right: 1px solid rgba(128, 128, 128, 0.163);">
+                                <h5>Organization Prefix</h5>
+                                 <!-- organization prefix content start -->
+                                <p class="text-center my-2"> An exclusive organizational prefix to generate short URLs in your own private area.
+                                </p>
+                                <p style="position: relative; bottom: 5px;" class="text-center mt-2">Start with <strong id="myButton">3u.gg/<a ><mark class="text-color"
+                                    style="background-color:#b3d7fc; color:#a30132;">pr</mark>/<b style="font-size: 25px !important;">_ _ _ _</b></strong></a></strong>
+                                    </p>
+                                    <table class="table table-bordered" style="color: #1e375a !important; border-right: 1px solid black; position: relative; bottom: 6px;">
+                                        <thead class="bg-light ">
+                                            <tr>
+                                                <th scope="col" colspan="2" class="text-center">Exclusive Organization <br> Prefix</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="font-size:14px;">
+                                            <tr>
+                                                <td>US$9.99 per month</td>
+                                                <td>1,000 Short URLs</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                <!-- organization prefix content end -->
+                            </div>
+                            <div class="col-md-6 col-sm-12 text-center">
+                                <h5>Branded Shortener</h5>
+                                 <!-- Branded shortner start -->
+                                <p class="text-center my-2">
+                                    A branded organization shortener to align URLs with your corporate  identity.
+                                </p>
+                                <p class="text-center mt-2">Start with <strong><a id="myButton1"><mark class="text-color"
+                                    style="background-color:#b3d7fc; color:#a30132;">pr</strong></mark></a><b>.3u.gg</b></strong>
+                                    </p>
+                                
+                                    <table class="table table-bordered" style="color: #1e375a !important;">
+                                        <thead class="bg-light ">
+                                            <tr>
+                                                <th scope="col" colspan="2" class="text-center">Branded Organization Shortener</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="font-size:14px;">
+                                            <tr>
+                                                <td>US$24.99 per month</td>
+                                                <td>1,000 Short URLs</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                <!-- Branded shortner end -->
+                            </div>
+                        </div>
+                        <!--  -->
+                       
+                        <div class=" pt-2 text-center" style="position: relative; bottom: 10px;">
+                            <a href="https://admin.3u.gg/auth" target="_blank" class="mt-4 btn btn-price btn-rounded center" style="transform: scale(0.8); position: relative; bottom: 5px;">Get Started</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="pricing-box mt-4">
-                    <h4 class="f-20 bg-price text-white p-2 mb-3  text-center">Direct Short URLs</h4>
-                    <p class="text-center mb-3 mt-5">Start with <strong>3u.gg/</strong></p>
-                    <div>
-                        <table class="table table-bordered" style="color: #1e375a !important;">
-                            <thead class="bg-light ">
-                                <tr>
-                                    <th scope="col">Package</th>
-                                    <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody style="font-size:14px;">
-                                <tr>
-                                    <td>Annual</td>
-                                    <td>US$1.00</td>
-                                </tr>
-                                <tr>
-                                    <td>5 Years</td>
-                                    <td>US$3.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                         <div class="mt-2 pt-2 text-center">
-                        <a href="https://admin.3u.gg/auth"target="_blank"class="btn btn-price btn-rounded center">Get Started</a>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-5">
-                <div class="pricing-box mt-4">
-                    <h4 class="f-20 bg-price text-white p-2 mb-3  text-center">Organization Accounts</h4>
-
-                   
-                   <p class="text-center mt-5">Start with <strong>3u.gg/<a id="myButton"><mark class="text-color" style="background-color:#b3d7fc; color:#a30132;">pr</strong></mark></a>/</strong></p>
-                    <!-- <div class="tooltip">Permanent Tooltip</div> -->
-            <!-- <p class="text-center">Start with <strong>3u.gg/<a id="myButton"><mark class="text-danger">pr</strong></mark></a>/</p> -->
-             <!-- <div class="speech-bubble">
-      <p>Your organization prefix here.</p></div>
-            <p class="text-center" style="margin-top: 40px;">Start with <strong>3u.gg/<mark class="text-danger">pr</strong></mark></a>/</p>
-                    <div> -->
-                        <table class="table table-bordered"style="color: #1e375a !important;">
-                            <thead class="bg-light ">
-                                <tr>
-                                    <th scope="col">Basic Package</th>
-                                    <th scope="col">Pro Package</th>
-                                </tr>
-                            </thead>
-                            <tbody style="font-size:14px;">
-                                <tr>
-                                    <td>US$9.99 per month</td>
-                                    <td>US$24.99 per month</td>
-                                </tr>
-                                <tr>
-                                    <td>1,000 Short URLs</td>
-                                    <td>5,000 Short URLs</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                         <div class="mt-2 pt-2 text-center">
-                        <a href="https://admin.3u.gg/auth"target="_blank" class="btn btn-price btn-rounded center">Get Started</a>
-                    </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!--============= Call In Action Section Ends Here =============-->
    
       <!--============= Call In Action Section Ends Here =============-->
     <section id="FAQ">
@@ -1033,7 +1047,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="./assets/images/blog/Non-Clickable-Media-Tracking.png"  alt="Tracking on non-clickable media" class="img-fluid">
                  <h5 class="text-dark mt-20"><a href="non-clickable-media-optimized.html"target="_blank">Advertising Campaign Tracking on non-clickable media</a></h5>
             </div>
-            <span class="text-readmore"><a href="non-clickable-media-optimized.html" target="_blank" class="text-readmore mt-2">Read More </a> </span>
+            <span class="text-readmore "><a href="non-clickable-media-optimized.html" target="_blank" class="text-readmore mt-2 mb-20">Read More </a> </span>
         </div>
        <div class="col-md-3">
             <div class="text-left">
@@ -1041,7 +1055,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="./assets/images/blog/campaign-tracking.png" alt="Separating campaign tracking" class="img-fluid">
                  <h5 class="text-dark mt-20"><a href="campaign-and-behavior-tracking-separation.html" target="_blank">Separating campaign tracking from behavior tracking</a></h5>
             </div>
-            <span class="text-readmore"><a href="campaign-and-behavior-tracking-separation.html"target="_blank" class="text-readmore mt-2 ">Read More </a> </span>
+            <span class="text-readmore"><a href="campaign-and-behavior-tracking-separation.html"target="_blank" class="text-readmore mt-2 mb-20">Read More </a> </span>
         </div>
         <div class="col-md-3">
             <div class="text-left">
@@ -1049,7 +1063,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img src="./assets/images/blog/hyperlink-versioned-documents.png" alt="hyperlink approach for versioned documents" target="_blank" class="img-fluid">
                 <h5 class="text-dark mt-20">Implement a strategic hyperlink approach for versioned documents</h5>
             </div>
-            <span class="text-readmore"><a target="_blank" href="#0" class="text-readmore mt-2">Read More </a> </span>
+            <span class="text-readmore"><a target="_blank" href="#0" class="text-readmore mt-2 mb-20">Read More </a> </span>
         </div>
         <div class="col-md-3">
             <div class="text-left">
@@ -1168,10 +1182,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
      
            <!-- Initialize Bootstrap tooltips -->
+   
+
+     <script src="./assets/js/imageMapResizer.min.js"></script>
+    <script>imageMapResize();</script>
+
+    <!-- Initialize Bootstrap tooltips -->
     <script>
-    tippy('#myButton', {
-        content: 'Your organization prefix here',
-    });
+        tippy('#myButton', {
+            content: 'Your organization prefix here',
+        });
+        tippy('#myButton1', {
+            content: 'Your organization prefix here',
+        });
     </script>
 
 
@@ -1390,6 +1413,40 @@ function SendEmail() {
     oRequest.send(data);
 }
 </script>
+
+ <script>
+
+        // Initialize Tippy.js with your desired options
+
+        // JavaScript
+        // Initialize Tippy.js with your desired options
+        const myButton = document.getElementById('myButton');
+        const myButton1 = document.getElementById('myButton1');
+
+        // Create the tooltip instance
+        // tippy(myButton, {
+        //     content: 'Your organization prefix here',
+        //     allowHTML: true,
+        //     placement: 'top',
+        //     arrow: true,
+        //     trigger: 'manual', // Set trigger to 'manual' to display tooltip without mouse hover
+        //     interactive: true, // Ensure the tooltip is interactive
+        //     appendTo: document.body, // Append the tooltip to the body to avoid clipping
+        //     showOnCreate: true, // Show the tooltip when it's created
+        //     hideOnClick: false // Prevent hiding when clicked
+        // });
+        // tippy(myButton1, {
+        //     content: 'Your organization prefix here',
+        //     allowHTML: true,
+        //     placement: 'top-start',
+        //     arrow: true,
+        //     trigger: 'manual', // Set trigger to 'manual' to display tooltip without mouse hover
+        //     interactive: true, // Ensure the tooltip is interactive
+        //     appendTo: document.body, // Append the tooltip to the body to avoid clipping
+        //     showOnCreate: true, // Show the tooltip when it's created
+        //     hideOnClick: false // Prevent hiding when clicked
+        // });
+    </script>
 
 <script>
 
