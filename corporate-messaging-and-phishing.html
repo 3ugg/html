@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Read our blog post on campaign and behavior tracking separation.">
-    <meta name="keywords" content="Campaign Tracking Parameters, Behaviour Tracking Parameters, UTM Parameters">
+    <meta name="description" content="Read our blog post on Corporate Messaging and Phishing.">
+    <meta name="keywords" content="Corporate messaging security, Phishing prevention strategies, Protect corporate communication, Secure business messaging">
     <meta name="robots" content="index,follow">
     <meta name="channel" content="Mnemonic URL Shortener">
     <meta name="distribution" content="Global">
 
-    <title>Campaign and Behavior Tracking Separation | 3u.gg </title>
+    <title>Corporate Messaging and Phishing | 3u.gg </title>
 
     <!-- Google Tag Manager -->
     <script>
@@ -163,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <a href="#0" class="read">3 min read</a> -->
                                     </div>
                                     <h3 class="title mt-4 mb-10 mb-4">
-                                        Campaign and Behavior Tracking Separation
+                                        Corporate Messaging and Phishing
                                     </h3>
                                 </div>
                                 <div class="post-content">
@@ -183,43 +183,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         </a>
                                     </div> -->
                                     <div class="entry-content">
-                                        <p>When a viewer clicks on a link, the link takes it to a target URL and is usually followed by a long list of ?attribute=value pairs. These parameters communicate different types of variables to the advertiser. Some of them are campaign tracking parameters usually called ‘utm-parameters’ which carry information like the campaign source, medium, content, and keywords etc.</p>
-                                         <img src="assets/images/blog/campaign-tracking-blog-post.png" alt="Campaign and Behavior Tracking Separation">
-                                        <p>The advertiser has a right to be able to track its advertisement campaign and the advertiser’s affiliates and influencers have the right to be compensated fairly for their effort in making the content reach the eyes of the viewer and to make the viewer interested in the product and click on the provided link. </p>
+                                         <p>Advertising and messaging media is classified either as ‘clickable’ or ‘non-clickable’. Most common media for advertising is still  <a href="non-clickable-media-optimized.html">non-clickable</a>.</p>
+                                        <p>Corporate messaging to customers is usually on media which is clickable.</p>
+                                         <img src="assets/images/reserve-branded-domain.jpg" alt="Corporate messaging">
+                                        <p>Within clickable media, some media are ‘hypertext’ and others are not.
+
+                                        E.g. all messaging on SMS and most messaging on chat applications like WhatsApp, Slack etc. is non-hypertext.</p>
                                          
-                                        <p>But the fair and honest effort of campaign tracking is getting increasingly marred by the practice of behavior tracking; a practice where intelligent scripts embedded with the content increasingly analyze the viewer’s behavior.  As the user goes through the provided content, the behavior tracking scripts are busy counting, calculating and analyzing every single act, movement and even pauses to make sense of what is going on in the viewer’s head.</p>
+                                        <p>What this means for corporate messaging is that the target URL for the customer is the same as the one being shown in the message e.g.</p> <img src="assets/images/blog/corporate-messaging-for-the-customer.jpg" alt="Campaign Tracking Parameters">
 
-                                        <p>Such practice is frowned upon at the very least by most users, if not outright detested. Different browsers and extensions are available to block behavior tracking. But there is collateral damage in the process; the otherwise benign campaign tracking parameters are also suppressed and never sent to the advertiser servers as the viewer clicks on the link.</p>
+                                        <p>When companies use public URL shortening services, the URLs they send are indistinguishable from the ones which a phishing attacker can also generate. On top of this, it is virtually impossible for a user to type them by hand. <a href="mnemonic-urls.html" class="read">Read More</a></p>
 
-                                        <p>How do we separate the two practices using technology? Campaign tracking parameter values are known ‘before’ the content is presented to the viewer, while behavior tracking parameter values are generated only ‘after’ the content is presented to the viewer.</p>
+                                        <p>Most other media for corporate messaging is ‘hypertext’. This includes email messages and web pages among others. On hypertext media the actual link may be different than the one being shown to the user where the user is expected to click.</p>
                                       
-                                        <p>Now there is technology help available that has addressed the issue and provided a service to allow and enable campaign tracking while neatly separating from any other behavior tracking activities which may or may not be there. Even if the behavior tracking parameters are blocked by any script, the campaign tracking is still available.</p>
+                                        <p>A different URL hyperlinked on a visible link has been the source of most phishing attacks. The unsuspecting user clicks on the deceptive link, which covertly redirects them to a phishing site.</p>
+
+                                        <p>Security cautious users prefer to type the URL by hand instead of clicking on them.</p>
+
+                                        <p>Most companies are still using vulnerable methods for customer communications.</p>
 
                                         <h5 class="title mb-3">
-                                        Introducing 3u.gg URL Shortener Service</h5>
-                                        <p>3u.gg is a mnemonic only URL shortener service. The service solves the problem by embedding all campaign tracking parameters into a short-URL. The values of those parameters are booked initially when the short-URL is generated. The values can be edited / updated later on as well.</p>
+                                        3u.gg Branded URL Shortener Solution</h5>
+                                        <p>3u.gg offers a branded URL shortener solution. It starts with a small prefix that identifies your organization e.g. <span style="color: #a30132; background-color:#b3d7fc">fnb</span>.3u.gg/<span style=" background-color:#b3d7fc">----</span> (assuming your org is called First National Bank)</p>
 
                                         
-                                        <p>When the short-URL is clicked by a viewer, the request is received by the 3u.gg server which forwards the short-URL to the target URL. In the process, if configured in this way, the 3u.gg server can fetch all parameters from the database and append them to the target URL which are consumed as utm-parameters by the target advertiser server.</p>
+                                        <p>End users clearly identify the first few letters as your org and 3u.gg as the standard mnemonic URL shortener. The front space is all your to make your own ‘Corporate URL strategy’. Typical important and repeated short URLs can be just a character or two e.g. fnb.3u.gg/mfa for the Multi-Factor Authentication links on the corporate website.</p>
 
-                                        <p>In this way, when the end viewer clicks on the link, it does not have any campaign related ?attribute-value pairs appended to the URL. The target URL looks clean. Since 3u.gg is a mnemonic only URL-shortener service, smaller URLs with four or five characters are usually available. A typical short URL would look like 3u.gg/b7xva</p>
-
-                                        <p>The suffix will resolve to any combination of campaign tracking URL parameters like 
-                                        <br>utm_source=google
-                                        <br>utm_medium=cpc
-                                        <br>utm_campaign=spring_sale
-                                        <br>utm_term=running+shoes
-                                        <br>utm_content=logolink</p>
-                                       
-                                        <p>When a viewer clicks on the neat and clean short-URL of 3u.gg/b7xva, the URL either forwards to https://serverdomain.com/target?utm_source-google&utm_medium_campaign-ontent=logolink</p>
-                                        <img src="assets/images/blog/Smart-URL.jpg" alt="Campaign Tracking Parameters">
-                                        <p>Alternately, if configured in this way, the target URL can only be https://serverdomain.com/target. Without any campaign tracking parameters appended as query parameters. The access logs, in this case can later be correlated between 3u.gg servers and the advertiser server.
-</p>
-                                        <h5 class="title mb-2">
-                                       The Final Takeaway</h5>                                   
-                                        <p>Behavior tracking is a newer technology that is increasingly blocked by browsers. With this, the advertiser campaign tracking is also falling a victim to such blocking. 3u.gg is a mnemonic only URL-forwarder service that allows to separate the two and enables an advertiser to continue getting useful results from its campaign tracking. The shortened are optimized for  <a href="non-clickable-media-optimized.html">non-clickable media advertising</a> as well. </p>
-
-                                        
+                                        <p>If the communication is on hypertext media, the user can still avoid clicking the link and just type by hand. (ps: Mnemonic URLs even tolerate many mistakes which users may make while typing by hand.)</p>
+  
 
                                     </div>
                                 </div>
@@ -260,7 +251,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="col-lg-4 col-md-8 col-sm-10">
                     <aside class="sticky-menu">
-                       <!--  <div class="widget widget-search">
+                        <!-- <div class="widget widget-search">
                             <h5 class="title">search</h5>
                             <form class="search-form">
                                 <input type="text" placeholder="Enter your Search Content" required>
