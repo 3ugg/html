@@ -484,7 +484,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 class="img-fluid"></a>
 
         <p class="footer mt-10 ">
-          3u.gg is a mnemonic URL shortening service provided by Hosting Controller Inc., a Canadian corporation. 
+          3u.gg is a mnemonic URL shortening service for organizational and direct short URLs. 
         </p>
       </div>
       <!--Grid column-->
@@ -546,7 +546,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="row text-left ">
         <div class="col-sm-12 col-xs-12 mt-4 mb-3 mb-4">
         <div class="footer copyright ">
-          <p>© Copyright 2024 | <a href="index.html">3u.gg</a> All Rights Reserved.</p>
+          <p>© Copyright <span id="currentYear"></span> | <a href="index.html">3u.gg</a> All Rights Reserved.</p>
         
       </div>
   </div>
@@ -571,6 +571,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="assets/js/paroller.js"></script>
     <script src="assets/js/contact.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
 
     <script>
     function sharePost(platform) {

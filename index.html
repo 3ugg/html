@@ -223,6 +223,36 @@
             font-size: 17px;
         }
 
+        /* Hide Desktop Banner on Small Screens */
+@media (max-width: 430px) {
+    .bg-Gifbanner {
+        display: none !important;
+    }
+    .sm-Gifbanner {
+        display: block !important;
+    }
+}
+
+/* Hide Mobile Banner on Large Screens */
+@media (min-width: 431px) {
+    .sm-Gifbanner {
+        display: none !important;
+    }
+    .bg-Gifbanner {
+        display: block !important;
+    }
+}
+
+/* Fix for Responsive Height */
+@media (max-width: 1199px) {
+    .pricing-box {
+        min-height: 695px !important; /* Adjust height as needed */
+    }
+    .btn-price {
+        bottom: -26px !important;
+    }
+}
+
         /* Ensure banner height is 400px on small screens */
         @media (max-width: 768px) {
             .full-width-image img {
@@ -262,7 +292,7 @@
         }
         @media (min-width: 431px){
             .sm-Gifbanner{
-                display: none;
+                display: none!important;
             }
         }
 
@@ -368,16 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
        
-       <!--  <map name="image-map-small">
-            <area target="" alt="" title="" href="branded-messaging.html" coords="657,1687,1248,1866" shape="rect">
-            <area target="" alt="" title="" href="mnemonic-urls.html" coords="657,3691,1246,3864" shape="rect">
-        </map>
-        
-        <map name="image-map">
-           <area target="" alt="" title="" href="branded-messaging.html" coords="248,397,437,449" shape="rect">
-            <area target="" alt="" title="" href="mnemonic-urls.html" coords="1177,196,1367,247" shape="rect">
-        </map> -->
-
+      
 
 
          <map name="image-map-small">
@@ -680,7 +701,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       Service
                     </button>
                  </h5>
-                 <!-- <a href="#" data-target="[data-parent='#child1']" data-toggle="collapse" class="my-2 float-right">close all</a> -->
+               
             </div>
              
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
@@ -1128,7 +1149,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 class="img-fluid"></a>
 
         <p class="footer mt-10 ">
-          3u.gg is a mnemonic URL shortening service provided by Hosting Controller Inc., a Canadian corporation. 
+          3u.gg is a mnemonic URL shortening service for organizational and direct short URLs.
+  
         </p>
       </div>
       <!--Grid column-->
@@ -1227,11 +1249,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Initialize Bootstrap tooltips -->
     <script>
         tippy('#myButton', {
-            content: 'Your organization prefix here',
-        });
+    content: 'Your organization prefix here',
+    });
         tippy('#myButton1', {
-            content: 'Your organization prefix here',
-        });
+    content: 'Your organization prefix here',
+    });
     </script>
 
 
@@ -1411,45 +1433,7 @@ $(document).ready(function() {
 </script>
 
 
-<script>
 
-function ValidateForm() {
-    // Commented out Company validation since it's not in use
-    // if (document.getElementById("CompanyName").value == "") {
-    //     alert('Please enter Company Name.');
-    //     document.getElementById("CompanyName").focus();
-    //     return false;
-    // }
-    
-    if (document.getElementById("FullName").value == "") {
-        alert('Please enter Name.');
-        document.getElementById("FullName").focus();
-        return false;
-    }
-
-    if (document.getElementById("Email").value == "") {
-        alert('Please enter Email.');
-        document.getElementById("Email").focus();
-        return false;
-    }
-
-    SendEmail();
-    
-    return true;
-}
-
-function SendEmail() {
-    var oRequest = new XMLHttpRequest();
-    oRequest.open("POST", "https://your-crm-endpoint-url", true);
-    oRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    
-    // Adjust the data sent based on available fields
-    var data = "fullname=" + encodeURIComponent(document.getElementById("FullName").value) +
-               "&emailaddress=" + encodeURIComponent(document.getElementById("Email").value);
-    
-    oRequest.send(data);
-}
-</script>
 
  <script>
 
@@ -1460,53 +1444,10 @@ function SendEmail() {
         const myButton = document.getElementById('myButton');
         const myButton1 = document.getElementById('myButton1');
 
-        // Create the tooltip instance
-        // tippy(myButton, {
-        //     content: 'Your organization prefix here',
-        //     allowHTML: true,
-        //     placement: 'top',
-        //     arrow: true,
-        //     trigger: 'manual', // Set trigger to 'manual' to display tooltip without mouse hover
-        //     interactive: true, // Ensure the tooltip is interactive
-        //     appendTo: document.body, // Append the tooltip to the body to avoid clipping
-        //     showOnCreate: true, // Show the tooltip when it's created
-        //     hideOnClick: false // Prevent hiding when clicked
-        // });
-        // tippy(myButton1, {
-        //     content: 'Your organization prefix here',
-        //     allowHTML: true,
-        //     placement: 'top-start',
-        //     arrow: true,
-        //     trigger: 'manual', // Set trigger to 'manual' to display tooltip without mouse hover
-        //     interactive: true, // Ensure the tooltip is interactive
-        //     appendTo: document.body, // Append the tooltip to the body to avoid clipping
-        //     showOnCreate: true, // Show the tooltip when it's created
-        //     hideOnClick: false // Prevent hiding when clicked
-        // });
+        
     </script>
 
-<script>
 
-// Initialize Tippy.js with your desired options
-
-// JavaScript
-// Initialize Tippy.js with your desired options
-const myButton = document.getElementById('myButton');
-
-// Create the tooltip instance
-tippy(myButton, {
-  content: 'Your organization prefix here',
-  allowHTML: true,
-  placement: 'top',
-  trigger: 'manual', // Set trigger to 'manual' to display tooltip without mouse hover
-  interactive: true, // Ensure the tooltip is interactive
-  appendTo: document.body, // Append the tooltip to the body to avoid clipping
-  showOnCreate: true, // Show the tooltip when it's created
-  hideOnClick: false // Prevent hiding when clicked
-});
-
-
-</script>
 
 <script>
     document.getElementById("currentYear").textContent = new Date().getFullYear();

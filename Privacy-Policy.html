@@ -187,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <p><span>Thank you for using 3u.gg</span></p>
 
          <h5 class="card-title">1. Introduction</h5>
-        <p>Welcome to <a href="https://www.3u.gg">3u.gg</a>, a premium URL shortening service provided by Hosting Controller Inc, a Canadian corporation. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of information that you may provide through our website and service. We are committed to protecting your privacy in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA), the General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA), and other applicable Canadian privacy laws.</p>
+        <p>Welcome to <a href="https://www.3u.gg">3u.gg</a>, a premium URL shortening service. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of information that you may provide through our website and service. We are committed to protecting your privacy in accordance with the Personal Information Protection and Electronic Documents Act (PIPEDA), the General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA), and other applicable Canadian privacy laws.</p>
 
          <h5 class="card-title">2. Information We Collect</h5>
         <p>We collect the following types of information:</p>
@@ -274,14 +274,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website and updating the effective date.</p>
         
          <h5 class="card-title">12. Contact Us</h5>
-        <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
+        <p>If you have any questions or concerns about this Privacy Policy, please contact us.</p>
         <address>
-            <strong>Hosting Controller Inc</strong><br>
+            <!-- <strong>Hosting Controller Inc</strong><br>
             1056 Gardiners Rd<br>
             Kingston, ON, K7P 1R7<br>
             <a href="mailto:privacy@3u.gg">privacy@3u.gg</a><br>
             +1 647 799 1000
-        </address>
+        </address> -->
         
          <h5 class="card-title">13. Additional Information for California Residents (CCPA)</h5>
         <p>If you are a resident of California, you have the following additional rights under the CCPA:</p>
@@ -345,7 +345,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 class="img-fluid"></a>
 
         <p class=" footer mt-10 ">
-          3u.gg is a mnemonicm URL shortening service provided by Hosting Controller Inc., a Canadian corporation. 
+          3u.gg is a mnemonic URL shortening service for organizational and direct short URLs. 
         </p>
       </div>
       <!--Grid column-->
@@ -407,7 +407,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="row text-left ">
         <div class="col-sm-12 col-xs-12 mt-4 mb-3 mb-4">
         <div class="footer copyright ">
-          <p>© Copyright 2024 | <a href="index.html">3u.gg</a> All Rights Reserved.</p>
+          <p>© Copyright <span id="currentYear"></span> | <a href="index.html">3u.gg</a> All Rights Reserved.</p>
         
       </div>
   </div>
@@ -434,6 +434,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="assets/js/contact.js"></script>
     <script src="assets/js/main.js"></script>
 
+
+    <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>

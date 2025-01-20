@@ -224,7 +224,7 @@
                 class="img-fluid"></a>
 
         <p class="footer mt-10 ">
-          3u.gg is a mnemonic URL shortening service provided by Hosting Controller Inc., a Canadian corporation. 
+          3u.gg is a mnemonic URL shortening service for organizational and direct short URLs. 
         </p>
       </div>
       <!--Grid column-->
@@ -286,6 +286,7 @@
     <div class="col-sm-12 col-xs-12 mt-4 mb-3 mb-4">
         <div class="footer copyright">
         <p>© Copyright <span id="currentYear"></span> | <a href="index.html">3u.gg</a> All Rights Reserved.</p>
+
     </div>
   </div>
      
@@ -333,158 +334,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            // Disable the button initially
-            $("#editableUrlBtn").prop('disabled', true).css({
-                "background-color": "lightgray",
-                "color": "darkgray",
-                "cursor": "not-allowed"
-            });
-
-            // Hide the status text initially
-            $("#statusText").hide();
-
-            // Valid characters: letters, numbers, hyphen, and tilde
-            const validPattern = /^[a-zA-Z0-9\-~]+$/;
-
-            // Function to debounce input
-            function debounce(func, wait) {
-                let timeout;
-                return function (...args) {
-                    clearTimeout(timeout);
-                    timeout = setTimeout(() => func.apply(this, args), wait);
-                };
-            }
-
-            // Function to check URL availability
-            function checkAvailability() {
-                var endpoint = $("#editableUrl").val().substring(6); // Get the part after "3u.gg/"
-
-                $.ajax({
-                    url: "https://admin.3u.gg:9500/urls/isavailable?url=" + encodeURIComponent(endpoint),
-                    type: "GET",
-                    dataType: "json",
-                    beforeSend: function () {
-                        $("#editableUrlBtn").prop('disabled', true).css({
-                            "background-color": "lightgray",
-                            "color": "darkgray",
-                            "cursor": "not-allowed"
-                        });
-                    },
-                    success: function (result) {
-                        if (result.IsSuccess) {
-                            $("#statusText").text("Available").css("color", "green").show();
-                            $("#editableUrl").addClass("show-status");
-                            $("#editableUrlBtn").text("Grab It").prop('disabled', false).css({
-                                "background-color": "",
-                                "color": "",
-                                "cursor": "pointer"
-                            });
-                        } else {
-                            $("#statusText").text("Not Available").css("color", "red").show();
-                            $("#editableUrl").addClass("show-status");
-                            $("#editableUrlBtn").text("Check Availability").prop('disabled', false).css({
-                                "background-color": "",
-                                "color": "",
-                                "cursor": "pointer"
-                            });
-                        }
-                    },
-                    error: function () {
-                        $("#statusText").text("Not Available").css("color", "red").show();
-                        $("#editableUrl").addClass("show-status");
-                        $("#editableUrlBtn").text("Check Availability").prop('disabled', false).css({
-                            "background-color": "",
-                            "color": "",
-                            "cursor": "pointer"
-                        });
-                    }
-                });
-            }
-
-            // Handle input change with debounce
-            $("#editableUrl").on("input", debounce(function () {
-                var currentValue = $(this).val().substring(6); // Get the part after "3u.gg/"
-
-                // Check if input contains only valid characters and is at least 4 characters long
-                if (currentValue.length >= 4 && validPattern.test(currentValue)) {
-                    // Enable the button if valid and length is 4 or more
-                    $("#editableUrlBtn").prop('disabled', false).text("Check Availability").css({
-                        "background-color": "",
-                        "color": "",
-                        "cursor": "pointer"
-                    });
-                } else {
-                    // Disable the button if invalid characters are found or length is less than 4
-                    $("#editableUrlBtn").prop('disabled', true).text("Check Availability").css({
-                        "background-color": "lightgray",
-                        "color": "darkgray",
-                        "cursor": "not-allowed"
-                    });
-                }
-            }, 100)); // Debounce with 100ms delay
-
-            // Prevent typing or placing cursor in "3u.gg/"
-            $("#editableUrl").on("keydown", function (event) {
-                var baseUrlLength = "3u.gg/".length;
-                var selectionStart = $(this).get(0).selectionStart;
-
-                // Prevent deleting or typing in the "3u.gg/" part
-                if (selectionStart < baseUrlLength) {
-                    event.preventDefault();
-                }
-
-                // Allow backspace after "3u.gg/"
-                if (event.keyCode === 8 && selectionStart <= baseUrlLength) {
-                    event.preventDefault();
-                }
-            });
-
-            // For mobile: Monitor input and backspace behavior
-            $("#editableUrl").on("input", function () {
-                var baseUrl = "3u.gg/";
-                var currentValue = $(this).val();
-
-                // If the current value is shorter than the base URL, reset it to "3u.gg/"
-                if (currentValue.indexOf(baseUrl) !== 0) {
-                    $(this).val(baseUrl);
-                }
-
-                // Prevent cursor from moving into "3u.gg/" on mobile
-                var selectionStart = $(this).get(0).selectionStart;
-                if (selectionStart < baseUrl.length) {
-                    $(this).get(0).setSelectionRange(baseUrl.length, baseUrl.length);
-                }
-            });
-
-            // Prevent cursor from being placed in "3u.gg/" when clicked
-            $("#editableUrl").on("click", function () {
-                var baseUrlLength = "3u.gg/".length;
-
-                // Set cursor position at the end of "3u.gg/" if it's clicked within it
-                if ($(this).get(0).selectionStart < baseUrlLength) {
-                    $(this).get(0).setSelectionRange(baseUrlLength, baseUrlLength);
-                }
-
-                // Hide the status text when the input field is clicked
-                $("#statusText").hide();
-                $("#editableUrl").removeClass("show-status");
-            });
-
-            // Handle button click for URL availability or grabbing the URL
-            $("#editableUrlBtn").click(function () {
-                var buttonText = $(this).text();
-
-                if (buttonText === "Grab It") {
-                    var endpoint = $("#editableUrl").val().substring(6); // Get the part after "3u.gg/"
-                    window.open("https://admin.3u.gg/auth?url=" + encodeURIComponent(endpoint), '_blank');
-                } else {
-                    checkAvailability();
-                }
-            });
-        });
-    </script>
+    
     <script>
         function ValidateForm() {
             // Commented out Company validation since it's not in use
